@@ -34,21 +34,24 @@
   },
   "homepage": "https://github.com/freeman-lab/extrude#readme",
   "dependencies": {
-    "canvas-fit": "^1.5.0",
-    "canvas-orbit-camera": "^1.0.2",
     "delaunay-triangulate": "^1.1.6",
-    "extrude-edges": "0.0.0",
+    "lodash.defaults": "^3.1.2",
+  },
+  "devDependencies": {
     "face-normals": "0.0.0",
     "gl-context": "^0.1.1",
     "gl-geometry": "^2.0.0",
     "gl-mat4": "^1.1.4",
     "gl-shader": "^4.2.0",
     "glslify": "^5.0.2",
-    "lodash.defaults": "^3.1.2",
+    "canvas-fit": "^1.5.0",
+    "canvas-orbit-camera": "^1.0.2",
+    "budo": "^7.1.0",
+    "eye-vector": "0.0.0",
+    "glsl-diffuse-oren-nayar": "^1.0.2",
+    "glsl-specular-gaussian": "^1.0.0",
+    "mesh-reindex": "^1.0.0",
     "normals": "^1.0.1",
     "unindex-mesh": "^2.0.0"
-  },
-  "devDependencies": {
-    "budo": "^7.1.0"
   }
 }
