@@ -35,7 +35,7 @@
   "homepage": "https://github.com/freeman-lab/extrude#readme",
   "dependencies": {
     "delaunay-triangulate": "^1.1.6",
-    "lodash.defaults": "^3.1.2",
+    "lodash.defaults": "^3.1.2"
   },
   "devDependencies": {
     "face-normals": "0.0.0",
