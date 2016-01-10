@@ -49,12 +49,12 @@ Create a simplicial complex from a set of points.
 `points` should be a list in the form `[[x, y], [x, y], ...]`
 
 `complex` has two attributes:
-- `complex.position` is an array of 3d vertices `[[x, y, z], [x, y, z], ...]`
-- `complex.cells` is an array of tuples that index into the vertices `[[i, j, k], [i, j, k], ...]`
+- `complex.position` : array of 3d vertices `[[x, y, z], [x, y, z], ...]`
+- `complex.cells` : array of tuples that index into the vertices `[[i, j, k], [i, j, k], ...]`
 
 `opts` can include the following options:
-- `opts.bottom` the bottom of the extruded object `default: 0`
-- `opts.top` the top of the extruded object `default: 1`
-- `opts.closed` whether to close the top and bottom of the mesh `default: true`
+- `opts.bottom` : bottom of the extruded object `default: 0`
+- `opts.top` : top of the extruded object `default: 1`
+- `opts.closed` : whether to close the top and bottom of the mesh `default: true`
 
 If `top` and `bottom` are equal it will result in a single-sided 3d surface.
