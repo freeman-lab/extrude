@@ -21,7 +21,7 @@ camera.lookAt([3, 3, 4], [0, 0, 0], [1, 0, 0])
 
 var points = [[-1, -1], [1, -1], [1, 1], [-1, 1]]
 
-var complex = extrude(points, {top: 1, bottom: -1, closed: false})
+var complex = extrude(points, {top: 1, bottom: -1, closed: true})
 
 var geometry = Geometry(gl)
 
