@@ -19,7 +19,7 @@ var gl = context(canvas, render)
 window.addEventListener('resize', fit(canvas), false)
 camera.lookAt([3, 3, 4], [0, 0, 0], [1, 0, 0])
 
-var shape = 2
+var shape = 0
 var points = []
 
 if (shape === 0) {
