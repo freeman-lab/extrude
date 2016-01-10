@@ -1,7 +1,7 @@
 {
   "name": "extrude",
   "version": "1.0.0",
-  "description": "make 3d shapes from 2d geometry using extrusion",
+  "description": "turn a 2d shape into 3d with extrusion",
   "main": "index.js",
   "scripts": {
     "test": "standard",
