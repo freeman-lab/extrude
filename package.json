@@ -6,8 +6,8 @@
   "scripts": {
     "test": "standard & npm run tape",
     "tape": "tape test.js | tap-spec",
-    "start": "budo example.js:bundle.js --watch",
-    "demo": "budo demo.js:bundle.js --watch"
+    "start": "budo example.js:bundle.js --live --open",
+    "demo": "budo demo.js:bundle.js --live"
   },
   "browserify": {
     "transform": [
