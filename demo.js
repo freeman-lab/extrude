@@ -6,7 +6,9 @@ var glslify = require('glslify')
 var orbit = require('canvas-orbit-camera')
 var fit = require('canvas-fit')
 var unindex = require('unindex-mesh')
+var reindex = require('mesh-reindex')
 var faces = require('face-normals')
+var eye = require('eye-vector')
 var normals = require('normals')
 var extrude = require('./index.js')
 
@@ -28,10 +30,12 @@ var geometry = Geometry(gl)
 var mode = 0
 
 if (mode === 0) {
-  complex.positions = unindex(complex.positions, complex.cells)
-  complex.normals = faces(complex.positions)
+  var flattened = unindex(complex.positions, complex.cells)
+  complex = reindex(flattened)
+  complex.normals = normals.vertexNormals(complex.cells, complex.positions)
   geometry.attr('position', complex.positions)
   geometry.attr('normal', complex.normals)
+  geometry.faces(complex.cells)
 }
 
 if (mode === 1) {
@@ -65,6 +69,8 @@ function render () {
   geometry.bind(shader)
   shader.uniforms.projection = projection
   shader.uniforms.view = view
+  shader.uniforms.light = eye(view)
+  shader.uniforms.eye = eye(view)
   geometry.draw(gl.TRIANGLES)
   geometry.unbind()
 }
