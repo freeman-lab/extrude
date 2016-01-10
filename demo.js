@@ -15,13 +15,13 @@ var camera = orbit(canvas)
 var gl = context(canvas, render)
 
 window.addEventListener('resize', fit(canvas), false)
-camera.lookAt([5, -5, 5], [0, 0, 0], [1, 0, 0])
+camera.lookAt([3, 2, 5], [0, 0, 0], [1, 0, 0])
 
 var projection = mat4.create()
 var view = mat4.create()
 
 var points = [[-1, -1], [1, -1], [1, 1], [-1, 1]]
-var complex = extrude(points, {top: 1, bottom: -1})
+var complex = extrude(points, {top: 1, bottom: -1, closed: true})
 
 var geometry = Geometry(gl)
 

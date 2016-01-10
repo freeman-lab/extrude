@@ -1,7 +1,7 @@
 {
   "name": "extrude",
   "version": "1.0.0",
-  "description": "turn a 2d shape into 3d with extrusion",
+  "description": "turn a 2d shape into a 3d mesh with extrusion",
   "main": "index.js",
   "scripts": {
     "test": "standard",
@@ -44,6 +44,7 @@
     "gl-mat4": "^1.1.4",
     "gl-shader": "^4.2.0",
     "glslify": "^5.0.2",
+    "lodash.defaults": "^3.1.2",
     "normals": "^1.0.1",
     "unindex-mesh": "^2.0.0"
   },
