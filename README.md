@@ -3,7 +3,7 @@
 Use extrusion to turn a 2d shape into a 3d mesh. Extrusion is the process of "pulling" a 2d shape through space to make it 3d. This module contains a single function that accepts a collection of 2d points, and returns a 3d mesh in the form of a [`simplicial complex`](https://github.com/mikolalysenko/simplicial-complex), a data structure that works well with the [`stack.gl`](http://stack.gl/) suite.
 
 
-![hex](hex.gif)
+![hex](gif/triangle.gif)![hex](gif/square.gif)![hex](gif/hexagon.gif)
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
