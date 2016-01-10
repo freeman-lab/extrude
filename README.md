@@ -13,7 +13,7 @@ To use in your project
 npm install extrude
 ```
 
-To see the demo, clone this repo, then call
+To see an example, clone this repo, then call
 
 ```javascript
 npm install
@@ -35,7 +35,7 @@ geometry.attr('position', cube.positions)
 geometry.faces(cube.cells)
 ```
 
-See [`demo.js`](demo.js) for a complete end-to-end example.
+See [`example.js`](example.js) for a complete end-to-end example.
 
 ## usage
 
