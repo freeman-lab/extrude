@@ -1,6 +1,6 @@
 # extrude
 
-Use extrusion to turn a 2d shape into a 3d mesh. Extrusion is the process of "streching" a 2d shape through space to make it 3d. This module contains a single function that turns a collection of points into a [`simplicial complex`](https://github.com/mikolalysenko/simplicial-complex), a data structure for 3d meshes that works well with the [`stack.gl`](http://stack.gl/) suite.
+Use extrusion to turn a 2d shape into a 3d mesh. Extrusion is the process of "streching" a 2d shape through space to make it 3d. This module contains a single function. It accepts a collection of 2d points, and returns a 3d mesh in the form of a [`simplicial complex`](https://github.com/mikolalysenko/simplicial-complex), a data structure that works well with the [`stack.gl`](http://stack.gl/) suite.
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
