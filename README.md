@@ -57,4 +57,4 @@ Create a simplicial complex from a set of points.
 - `opts.top` the top of the extruded object `default: 1`
 - `opts.closed` whether to close the top and bottom of the mesh `default: true`
 
-If `top` and `bottom` are equal it will result in a "flat" 3d shape.
+If `top` and `bottom` are equal it will result in a single-sided 3d surface.
