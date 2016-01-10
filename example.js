@@ -19,15 +19,9 @@ var gl = context(canvas, render)
 window.addEventListener('resize', fit(canvas), false)
 camera.lookAt([3, 3, 4], [0, 0, 0], [1, 0, 0])
 
-var points = []
-for (var i = 0; i < 6; i++) {
-  points.push([
-    Math.cos(i * 2 * Math.PI / 6),
-    Math.sin(i * 2 * Math.PI / 6)
-  ])
-}
+var points = [[-1, -1], [1, -1], [1, 1], [-1, 1]]
 
-var complex = extrude(points, {top: 0.5, bottom: -0.5, closed: true})
+var complex = extrude(points, {top: 1, bottom: -1, closed: false})
 
 var geometry = Geometry(gl)
 

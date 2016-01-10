@@ -30,8 +30,8 @@ Assuming you already have a stack.gl context `gl`, make a cube like this!
 ```javascript
 var extrude = require('extrude')
 
-var points = [[0, 0], [0, 1], [1, 1], [1, 0]]
-var cube = extrude(points, {bottom: 0, top: 1})
+var points = [[-1, -1], [1, -1], [1, 1], [-1, 1]]
+var cube = extrude(points, {bottom: -1, top: 1})
 
 var geometry = require('gl-geometry')(gl)
 geometry.attr('position', cube.positions)
