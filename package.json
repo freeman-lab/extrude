@@ -1,0 +1,53 @@
+{
+  "name": "extrude",
+  "version": "1.0.0",
+  "description": "make 3d shapes from 2d geometry using extrusion",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard",
+    "start": "budo demo.js:bundle.js --watch"
+  },
+  "browserify": {
+    "transform": [
+      "glslify"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freeman-lab/extrude.git"
+  },
+  "keywords": [
+    "extrude",
+    "extrusion",
+    "2d",
+    "3d",
+    "geometry",
+    "stackgl",
+    "opengl",
+    "graphics",
+    "games"
+  ],
+  "author": "freeman-lab",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freeman-lab/extrude/issues"
+  },
+  "homepage": "https://github.com/freeman-lab/extrude#readme",
+  "dependencies": {
+    "canvas-fit": "^1.5.0",
+    "canvas-orbit-camera": "^1.0.2",
+    "delaunay-triangulate": "^1.1.6",
+    "extrude-edges": "0.0.0",
+    "face-normals": "0.0.0",
+    "gl-context": "^0.1.1",
+    "gl-geometry": "^2.0.0",
+    "gl-mat4": "^1.1.4",
+    "gl-shader": "^4.2.0",
+    "glslify": "^5.0.2",
+    "normals": "^1.0.1",
+    "unindex-mesh": "^2.0.0"
+  },
+  "devDependencies": {
+    "budo": "^7.1.0"
+  }
+}
