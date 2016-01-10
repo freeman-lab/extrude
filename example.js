@@ -19,26 +19,12 @@ var gl = context(canvas, render)
 window.addEventListener('resize', fit(canvas), false)
 camera.lookAt([3, 3, 4], [0, 0, 0], [1, 0, 0])
 
-var shape = 2
 var points = []
-
-if (shape === 0) {
-  var d = 1
-  points = [[-d, -0.4 * d * Math.sqrt(3)], [d, -0.4 * d * Math.sqrt(3)], [0, 0.6 * d * Math.sqrt(3)]]
-}
-
-if (shape === 1) {
-  var d = 0.75
-  points = [[-d, -d], [d, -d], [d, d], [-d, d]]
-}
-
-if (shape === 2) {
-  for (var i = 0; i < 6; i++) {
-    points.push([
-      Math.cos(i * 2 * Math.PI / 6),
-      Math.sin(i * 2 * Math.PI / 6)
-    ])
-  }
+for (var i = 0; i < 6; i++) {
+  points.push([
+    Math.cos(i * 2 * Math.PI / 6),
+    Math.sin(i * 2 * Math.PI / 6)
+  ])
 }
 
 var complex = extrude(points, {top: 0.5, bottom: -0.5, closed: true})
@@ -74,7 +60,6 @@ function render () {
   mat4.perspective(projection, fov, aspect, near, far)
 
   camera.rotate([0, 0, 0], [axis * 0.005, -0.005, 0])
-
   camera.view(view)
   camera.tick()
 
