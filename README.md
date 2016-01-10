@@ -41,13 +41,15 @@ See [`demo.js`](demo.js) for a complete end-to-end example.
 
 #### `complex = extrude(points, opts)`
 
-Create a simplicial complex from a set of points
+Create a simplicial complex from a set of points.
 
-`complex` has two attributes
+`points` should be a list in the form `[[x, y], [x, y], ...]`
+
+`complex` has two attributes:
 - `complex.position` is an array of 3d vertices `[[x, y, z], [x, y, z], ...]`
 - `complex.cells` is an array of tuples that index into the vertices `[[i, j, k], [i, j, k], ...]`
 
-`opts` can include the following options
+`opts` can include the following options:
 - `opts.bottom` the bottom of the extruded object `default: 0`
 - `opts.top` the top of the extruded object `default: 1`
 - `opts.closed` whether to close the top and bottom of the mesh `default: true`
