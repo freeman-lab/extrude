@@ -13,7 +13,7 @@ module.exports = function (points, opts) {
 
   function flat () {
     positions = points.map(function (p) { return [p[0], p[1], opts.top] })
-    cells = triangulate(points).map(function (p) {return p.sort()})
+    cells = triangulate(points).map(function (p) { return p.sort() })
   }
 
   function full () {
@@ -35,7 +35,7 @@ module.exports = function (points, opts) {
     if (opts.closed) {
       var top = triangulate(points).map(function (p) { return p.sort() })
       var bottom = top.map(function (p) { return p.map(function (v) { return v + n }) })
-      bottom = bottom.map(function (p) { return [p[0], p[2], p[1]]})
+      bottom = bottom.map(function (p) { return [p[0], p[2], p[1]] })
       cells = cells.concat(top).concat(bottom)
     }
   }
