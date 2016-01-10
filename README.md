@@ -44,12 +44,12 @@ See [`demo.js`](demo.js) for a complete end-to-end example.
 Create a simplicial complex from a set of points
 
 `complex` has two attributes
-- `complex.position` is an array of 3d vertices e.g. [[x, y, z], [x, y, z], ...]
-- `complex.cells` is an array of tuples that index into the vertices e.g. [[i, j, k], [i, j, k], ...]
+- `complex.position` is an array of 3d vertices `[[x, y, z], [x, y, z], ...]`
+- `complex.cells` is an array of tuples that index into the vertices `[[i, j, k], [i, j, k], ...]`
 
 `opts` can include the following options
-- `opts.bottom` the bottom of the extruded object (default: `0`)
-- `opts.top` the top of the extruded object (default: `1`)
-- `opts.closed` whether to close the top and bottom of the mesh (default: `true`)
+- `opts.bottom` the bottom of the extruded object `default: 0`
+- `opts.top` the top of the extruded object `default: 1`
+- `opts.closed` whether to close the top and bottom of the mesh `default: true`
 
-If only `top` is specified, assumes bottom is 0. If only `bottom` is specified, assumes bottom is 0. If neither `top` nor `bottom` is specified, creates a "flat extrusion" (e.g. `top` and `bottom` are 0).
+If `top` and `bottom` are equal it will result in a "flat" 3d shape.
