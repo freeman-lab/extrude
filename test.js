@@ -14,10 +14,10 @@ test('cube: cells', function (t) {
     [3, 2, 7],
     [7, 4, 3],
     [0, 3, 4],
-    [1, 2, 3],
     [0, 1, 3],
-    [5, 7, 6],
-    [4, 7, 5]
+    [3, 1, 2],
+    [4, 7, 5],
+    [7, 6, 5]
   ]
   allclose(t)(complex.cells, truth)
   t.end()
@@ -90,8 +90,8 @@ test('cube: cells (flat)', function (t) {
   var opts = {top: 0, bottom: 0}
   var complex = extrude([[-1, -1], [1, -1], [1, 1], [-1, 1]], opts)
   var truth = [
-    [1, 2, 3],
-    [0, 1, 3]
+    [0, 1, 3],
+    [3, 1, 2]
   ]
   allclose(t)(complex.cells, truth)
   t.end()
