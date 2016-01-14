@@ -20,7 +20,7 @@ var gl = context(canvas, render)
 window.addEventListener('resize', fit(canvas), false)
 camera.lookAt([3, 3, 4], [0, 0, 0], [1, 0, 0])
 
-var selection = 4
+var selection = 2
 var shape
 
 if (selection === 0) {
