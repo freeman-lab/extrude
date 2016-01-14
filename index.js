@@ -1,4 +1,4 @@
-var seidel = require('seidel')
+var pnltri = require('pnltri')
 var _ = require('lodash')
 
 module.exports = function (points, opts) {
@@ -12,20 +12,8 @@ module.exports = function (points, opts) {
   (opts.top === opts.bottom) ? flat() : full()
 
   function triangulate (points) {
-    return seidel([points]).map(function (t) {
-      var vertices = t.map(function (p) {
-        return _.findIndex(points, function (x) {
-          return Math.abs(x[0] - p.x) < 0.0000001 & Math.abs(x[1] - p.y) < 0.0000001
-        })
-      })
-      var c0 = [t[1].x - t[0].x, t[1].y - t[0].y]
-      var c1 = [t[2].x - t[0].x, t[2].y - t[0].y]
-      var cross = (c0[0] * c1[1]) - (c0[1] * c1[0])
-      if (cross < 0) {
-        vertices = [vertices[0], vertices[2], vertices[1]]
-      }
-      return vertices
-    })
+    points = points.map(function (p) { return {x: p[0], y: p[1]} })
+    return new pnltri.Triangulator().triangulate_polygon([points])
   }
 
   function flat () {
