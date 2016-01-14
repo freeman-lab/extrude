@@ -4,7 +4,7 @@
   "description": "turn a 2d shape into a 3d mesh with extrusion",
   "main": "index.js",
   "scripts": {
-    "test": "standard & npm run tape",
+    "test": "npm run tape & standard",
     "tape": "tape test.js | tap-spec",
     "start": "budo example.js:bundle.js --live --open",
     "demo": "budo demo.js:bundle.js --live"
@@ -36,8 +36,9 @@
   },
   "homepage": "https://github.com/freeman-lab/extrude#readme",
   "dependencies": {
-    "delaunay-triangulate": "^1.1.6",
-    "lodash.defaults": "^3.1.2"
+    "gl-vignette-background": "^2.0.1",
+    "lodash": "^4.0.0",
+    "seidel": "^0.2.4"
   },
   "devDependencies": {
     "budo": "^7.1.0",

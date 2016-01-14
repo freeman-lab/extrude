@@ -2,6 +2,7 @@ var Geometry = require('gl-geometry')
 var Shader = require('gl-shader')
 var context = require('gl-context')
 var mat4 = require('gl-mat4')
+var vignette = require('gl-vignette-background')
 var glslify = require('glslify')
 var orbit = require('canvas-orbit-camera')
 var fit = require('canvas-fit')
@@ -19,29 +20,32 @@ var gl = context(canvas, render)
 window.addEventListener('resize', fit(canvas), false)
 camera.lookAt([3, 3, 4], [0, 0, 0], [1, 0, 0])
 
-var shape = 0
-var points = []
+var selection = 4
+var shape
 
-if (shape === 0) {
-  var d = 1
-  points = [[-d, -0.4 * d * Math.sqrt(3)], [d, -0.4 * d * Math.sqrt(3)], [0, 0.6 * d * Math.sqrt(3)]]
+if (selection === 0) {
+  shape = require('./shapes/triangle.js')
 }
 
-if (shape === 1) {
-  var d = 0.75
-  points = [[-d, -d], [d, -d], [d, d], [-d, d]]
+if (selection === 1) {
+  shape = require('./shapes/square.js')
 }
 
-if (shape === 2) {
-  for (var i = 0; i < 6; i++) {
-    points.push([
-      Math.cos(i * 2 * Math.PI / 6),
-      Math.sin(i * 2 * Math.PI / 6)
-    ])
-  }
+if (selection === 2) {
+  shape = require('./shapes/hexagon.js')
 }
 
-var complex = extrude(points, {top: 0.5, bottom: -0.5, closed: true})
+if (selection === 3) {
+  shape = require('./shapes/circle.js')
+}
+
+if (selection === 4) {
+  shape = require('./shapes/heart.js')
+}
+
+console.log(shape)
+
+var complex = extrude(shape.points, {top: 0.5, bottom: -0.5, closed: true})
 
 var geometry = Geometry(gl)
 
@@ -53,12 +57,14 @@ geometry.attr('normal', complex.normals)
 geometry.faces(complex.cells)
 
 var shader = Shader(gl,
-  glslify('./shaders/example.vert'),
-  glslify('./shaders/example.frag')
+  glslify('./shaders/demo.vert'),
+  glslify('./shaders/demo.frag')
 )
 
 var projection = mat4.create()
 var view = mat4.create()
+
+var background = vignette(gl)
 
 function render () {
   var width = gl.drawingBufferWidth
@@ -79,12 +85,30 @@ function render () {
   camera.tick()
 
   gl.viewport(0, 0, width, height)
+  gl.clear(gl.COLOR_BUFFER_BIT)
+  gl.disable(gl.DEPTH_TEST)
+
+  background.style({
+    scale: [width * 0.0009, height * 0.0009],
+    smoothing: [-0.4, 0.6],
+    aspect: aspect,
+    color1: [1, 1, 1],
+    color2: shape.colors[0],
+    coloredNoise: false,
+    noiseAlpha: 0.2,
+    offset: [0, 0]
+  })
+
+  background.draw()
+
   gl.enable(gl.DEPTH_TEST)
 
   geometry.bind(shader)
   shader.uniforms.projection = projection
   shader.uniforms.view = view
   shader.uniforms.eye = eye(view)
+  shader.uniforms.color1 = shape.colors[0]
+  shader.uniforms.color2 = shape.colors[1]
   geometry.draw(gl.TRIANGLES)
   geometry.unbind()
 }
