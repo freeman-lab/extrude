@@ -63,6 +63,7 @@
     "mesh-reindex": "^1.0.0",
     "normals": "^1.0.1",
     "right-now": "^1.0.0",
+    "soundcloud-badge": "^1.0.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.4.0",
     "test-allclose": "^1.0.0",
