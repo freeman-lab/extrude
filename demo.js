@@ -14,15 +14,15 @@ var normals = require('normals')
 var css = require('dom-css')
 var extrude = require('./index.js')
 var soundcloud = require('soundcloud-badge')
-var safari = require('is-safari')
-var mobile = require('is-mobile')
+var issafari = require('is-safari')
+var ismobile = require('is-mobile')
 var Analyser = require('web-audio-analyser')
 
 var canvas = document.body.appendChild(document.createElement('canvas'))
 css(canvas, {zIndex: -1000})
 var gl = context(canvas, render)
 
-if (!mobile() & safari) {
+if (!ismobile() & issafari) {
   var message = document.body.appendChild(document.createElement('div'))
   css(message, {
     position: 'absolute', left: '4%', top: '3%',
@@ -31,7 +31,7 @@ if (!mobile() & safari) {
   message.innerHTML = 'for music view in Chrome or Firefox'
 }
 
-if (!mobile() & !safari) {
+if (!ismobile() & !issafari) {
   var audio = document.createElement('AUDIO')
   audio.crossOrigin = 'Anonymous'
   var analyser = Analyser(audio)
@@ -105,6 +105,10 @@ shapes.forEach(function (shape, i) {
 function resize () {
   var w = Math.sqrt(window.innerWidth * 20)
   var s = Math.sqrt(window.innerWidth * 1.2)
+  if (ismobile()) {
+    w *= 1.4
+    s *= 1.4
+  }
   var m = window.innerWidth * 0.01
   css(options, {width: w})
   css(link, {width: w, fontSize: s})
@@ -182,7 +186,7 @@ function render () {
   var far = 1000
   mat4.perspective(projection, fov, aspect, near, far)
 
-  if (!mobile() & !safari) {
+  if (!ismobile() & !issafari) {
     freq = analyser.frequencies().reduce(function (x, y) { return x + y })
     rotate = freq / 1000000
   }
@@ -195,6 +199,11 @@ function render () {
   gl.viewport(0, 0, width, height)
   gl.clear(gl.COLOR_BUFFER_BIT)
   gl.disable(gl.DEPTH_TEST)
+
+  if (ismobile()) {
+    width /= 2.1
+    height /= 3.0
+  }
 
   background.style({
     scale: [width * 0.0009, height * 0.0009],
