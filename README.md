@@ -2,6 +2,8 @@
 
 Use extrusion to turn a 2d shape into a 3d mesh. Extrusion is the process of "pulling" a 2d shape through space to make it 3d. This module contains a single function that accepts a collection of 2d points, and returns a 3d mesh in the form of a [`simplicial complex`](https://github.com/mikolalysenko/simplicial-complex), a data structure that works well with the [`stack.gl`](http://stack.gl/) ecosystem. The implementation uses seidel's algorithm to triangulate the top and bottom faces, and  triangulation of simple rectangles for the sides.
 
+View a demo at [demo](http://thefreemanlab.com/extrude).
+
 
 ![hex](gif/triangle.gif)![hex](gif/square.gif)![hex](gif/hexagon.gif)
 
@@ -16,12 +18,18 @@ To use in your project
 npm install extrude
 ```
 
-To see an example in your browser, clone this repo, then call
+To see an example, clone this repo, then call
 
 ```javascript
 npm install
 npm start
 ```
+and it should open a browser with a floating square. You can also try
+
+```javascript
+npm run demo
+```
+for a demo with several shapes.
 
 ## example
 
