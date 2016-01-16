@@ -31,6 +31,16 @@ if (!ismobile() & issafari) {
   message.innerHTML = 'for music view in Chrome or Firefox'
 }
 
+if (ismobile()) {
+  var message = document.body.appendChild(document.createElement('div'))
+  css(message, {
+    position: 'absolute', left: '4%', top: '3%',
+    color: 'white', fontFamily: 'GlacialIndifferenceRegular',
+    fontSize: 30
+  })
+  message.innerHTML = 'for music view on Desktop'
+}
+
 if (!ismobile() & !issafari) {
   var audio = document.createElement('AUDIO')
   audio.crossOrigin = 'Anonymous'
@@ -68,7 +78,7 @@ var type = {
   borderBottom: 'solid 3px rgb(20,20,20)',
   borderLeft: 'solid 3px rgba(0, 0, 0, 0)',
   paddingBottom: 2,
-  paddingLeft: 6,
+  paddingLeft: 8,
   transition: '0.15s',
   width: '100%',
   cursor: 'pointer'
