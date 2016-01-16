@@ -2102,20 +2102,20 @@ if (!mobile() & safari) {
 }
 
 if (!mobile() & !safari) {
-  var audio = new Audio()
+  var audio = document.createElement('AUDIO')
   audio.crossOrigin = 'Anonymous'
   var analyser = Analyser(audio)
 
   soundcloud({
-    client_id: 'cc4fb3b1e4b84004455321ad04a16580', 
-    song: 'https://soundcloud.com/constellation-records/cst025_track05', 
-    dark: false, 
+    client_id: 'cc4fb3b1e4b84004455321ad04a16580',
+    song: 'https://soundcloud.com/constellation-records/cst025_track05',
+    dark: false,
     getFonts: true
-  }, function(err, src, data, div) {
+  }, function (err, src, data, div) {
     if (err) throw err
     audio.src = src
     audio.loop = true
-    audio.addEventListener('canplay', function() {
+    audio.addEventListener('canplay', function () {
       audio.play()
     }, false)
   })
@@ -2134,8 +2134,8 @@ link.addEventListener('click', function () {
   window.location.href = 'http://github.com/freeman-lab/extrude'
 })
 var type = {
-  fontFamily: 'GlacialIndifferenceRegular', 
-  borderBottom: 'solid 3px rgb(20,20,20)', 
+  fontFamily: 'GlacialIndifferenceRegular',
+  borderBottom: 'solid 3px rgb(20,20,20)',
   borderLeft: 'solid 3px rgba(0, 0, 0, 0)',
   paddingBottom: 2,
   paddingLeft: 6,
@@ -2147,13 +2147,13 @@ css(link, type)
 mouseover(link)
 mouseout(link)
 
-function mouseover(el) {
+function mouseover (el) {
   el.addEventListener('mouseover', function () {
     css(el, {borderLeft: 'solid 3px rgb(20,20,20)'})
   })
 }
 
-function mouseout(el) {
+function mouseout (el) {
   el.addEventListener('mouseout', function () {
     css(el, {borderLeft: 'solid 3px rgba(0, 0, 0, 0)'})
   })
@@ -2172,7 +2172,7 @@ shapes.forEach(function (shape, i) {
   })
 })
 
-function resize() {
+function resize () {
   var w = Math.sqrt(window.innerWidth * 20)
   var s = Math.sqrt(window.innerWidth * 1.2)
   var m = window.innerWidth * 0.01
@@ -2194,7 +2194,7 @@ var flattened, geometry, shape
 
 reload()
 
-function reload() {
+function reload () {
   if (selection === 0) {
     shape = require('./shapes/triangle.js')
   }
@@ -2216,9 +2216,9 @@ function reload() {
   }
 
   var complex = extrude(shape.points, {top: 0.5, bottom: -0.5, closed: true})
-  
+
   geometry = Geometry(gl)
-  var flattened = unindex(complex.positions, complex.cells)
+  flattened = unindex(complex.positions, complex.cells)
   complex = reindex(flattened)
   complex.normals = normals.vertexNormals(complex.cells, complex.positions)
   geometry.attr('position', complex.positions)
@@ -2253,7 +2253,7 @@ function render () {
   mat4.perspective(projection, fov, aspect, near, far)
 
   if (!mobile() & !safari) {
-    freq = analyser.frequencies().reduce(function (x, y) {return x + y})
+    freq = analyser.frequencies().reduce(function (x, y) { return x + y })
     rotate = freq / 1000000
   }
 
