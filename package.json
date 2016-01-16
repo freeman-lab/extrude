@@ -8,7 +8,7 @@
     "tape": "tape test.js | tap-spec",
     "start": "budo example.js:bundle.js --live --open",
     "demo": "budo demo.js:bundle.js --live --open",
-    "bundle": "browserify demo.js -o bundle.js"
+    "build": "browserify demo.js -o bundle.js"
   },
   "browserify": {
     "transform": [
