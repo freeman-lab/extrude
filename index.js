@@ -1,9 +1,9 @@
 var pnltri = require('pnltri')
-var _ = require('lodash')
+var defaults = require('lodash.defaults')
 
 module.exports = function (points, opts) {
   opts = opts || {}
-  _.defaults(opts, {top: 1, bottom: 0, closed: true})
+  defaults(opts, {top: 1, bottom: 0, closed: true})
 
   var n = points.length
   var positions
