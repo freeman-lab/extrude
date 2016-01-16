@@ -1,6 +1,6 @@
 # extrude
 
-Use extrusion to turn a 2d shape into a 3d mesh. Extrusion is the process of "pulling" a 2d shape through space to make it 3d. This module contains a single function that accepts a collection of 2d points, and returns a 3d mesh in the form of a [`simplicial complex`](https://github.com/mikolalysenko/simplicial-complex), a data structure that works well with the [`stack.gl`](http://stack.gl/) ecosystem. The implementation uses seidel's algorithm to triangulate the top and bottom faces, and  triangulation of simple rectangles for the sides.
+Use extrusion to turn a 2d shape into a 3d mesh. Extrusion is the process of "pulling" a 2d shape through space to make it 3d. This module contains a single function that accepts a collection of 2d points, and returns a 3d mesh in the form of a [`simplicial complex`](https://github.com/mikolalysenko/simplicial-complex), a data structure that works well with the [`stack.gl`](http://stack.gl/) ecosystem. The implementation uses seidel's algorithm to triangulate the top and bottom faces, and  simple triangulated rectangles for the sides.
 
 View a [demo](http://thefreemanlab.com/extrude).
 
