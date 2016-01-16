@@ -2253,7 +2253,7 @@ var view = mat4.create()
 var background = vignette(gl)
 
 var rotate = 0.005
-var freq
+var freq, scale
 
 function render () {
   var width = gl.drawingBufferWidth
@@ -2283,12 +2283,13 @@ function render () {
   gl.disable(gl.DEPTH_TEST)
 
   if (ismobile()) {
-    width /= 2.1
-    height /= 3.0
+    scale = [0.00038 * width, 0.00026 * height]
+  } else {
+    scale = [0.0007 * width, 0.0007 * height]
   }
 
   background.style({
-    scale: [width * 0.0007, height * 0.0007],
+    scale: scale,
     smoothing: [-0.4, 0.6],
     aspect: aspect,
     color1: [0.95, 0.95, 0.95],
