@@ -11,13 +11,39 @@ var reindex = require('mesh-reindex')
 var eye = require('eye-vector')
 var time = require('right-now')
 var normals = require('normals')
+var css = require('dom-css')
 var extrude = require('./index.js')
 
 var canvas = document.body.appendChild(document.createElement('canvas'))
+css(canvas, {zIndex: -1000})
+
 var camera = orbit(canvas)
 var gl = context(canvas, render)
 
+var shapes = ['triangle', 'square', 'hexagon', 'circle', 'heart']
+var options = document.body.appendChild(document.createElement('div'))
+css(options, {position: 'absolute', width: '15%', right: '3%', top: '3%'})
+
+var items = []
+shapes.forEach(function (shape, i) {
+  items[i] = options.appendChild(document.createElement('div'))
+  items[i].innerHTML = shape
+  css(items[i], {
+    position: 'relative',
+    right: 0, top: 0,
+    fontSize: window.innerWidth * 0.04,
+    marginBottom: window.innerWidth * 0.02,
+    textAlign: 'left', 
+    borderBottom: 'solid 3px black',
+    width: '100%'
+  })
+  window.addEventListener('resize', function () {
+    css(items[i], {fontSize: window.innerWidth * 0.04})
+  })
+})
+
 window.addEventListener('resize', fit(canvas), false)
+
 camera.lookAt([3, 3, 4], [0, 0, 0], [1, 0, 0])
 
 var selection = 2

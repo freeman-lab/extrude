@@ -7,7 +7,7 @@
     "test": "npm run tape & standard",
     "tape": "tape test.js | tap-spec",
     "start": "budo example.js:bundle.js --live --open",
-    "demo": "budo demo.js:bundle.js --live"
+    "demo": "budo demo.js:bundle.js --live --open"
   },
   "browserify": {
     "transform": [
@@ -36,7 +36,6 @@
   },
   "homepage": "https://github.com/freeman-lab/extrude#readme",
   "dependencies": {
-    "gl-vignette-background": "^2.0.1",
     "lodash": "^4.0.0",
     "seidel": "^0.2.4"
   },
@@ -44,6 +43,7 @@
     "budo": "^7.1.0",
     "canvas-fit": "^1.5.0",
     "canvas-orbit-camera": "^1.0.2",
+    "dom-css": "^2.0.0",
     "eye-vector": "0.0.0",
     "face-normals": "0.0.0",
     "gl-context": "^0.1.1",
@@ -51,6 +51,7 @@
     "gl-mat3": "^1.0.0",
     "gl-mat4": "^1.1.4",
     "gl-shader": "^4.2.0",
+    "gl-vignette-background": "^2.0.1",
     "glsl-diffuse-oren-nayar": "^1.0.2",
     "glsl-specular-gaussian": "^1.0.0",
     "glslify": "^5.0.2",
