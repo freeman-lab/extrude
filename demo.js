@@ -22,8 +22,10 @@ var canvas = document.body.appendChild(document.createElement('canvas'))
 css(canvas, {zIndex: -1000})
 var gl = context(canvas, render)
 
+var message
+
 if (!ismobile() & issafari) {
-  var message = document.body.appendChild(document.createElement('div'))
+  message = document.body.appendChild(document.createElement('div'))
   css(message, {
     position: 'absolute', left: '4%', top: '3%',
     color: 'white', fontFamily: 'GlacialIndifferenceRegular'
@@ -32,7 +34,7 @@ if (!ismobile() & issafari) {
 }
 
 if (ismobile()) {
-  var message = document.body.appendChild(document.createElement('div'))
+  message = document.body.appendChild(document.createElement('div'))
   css(message, {
     position: 'absolute', left: '4%', top: '3%',
     color: 'white', fontFamily: 'GlacialIndifferenceRegular',
@@ -42,7 +44,7 @@ if (ismobile()) {
 }
 
 if (!ismobile() & !issafari) {
-  var audio = document.createElement('AUDIO')
+  var audio = new Audio()
   audio.crossOrigin = 'Anonymous'
   var analyser = Analyser(audio)
 
