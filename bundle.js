@@ -2288,7 +2288,7 @@ function render () {
   }
 
   background.style({
-    scale: [width * 0.0009, height * 0.0009],
+    scale: [width * 0.0007, height * 0.0007],
     smoothing: [-0.4, 0.6],
     aspect: aspect,
     color1: [0.95, 0.95, 0.95],
