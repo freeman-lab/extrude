@@ -22,6 +22,15 @@ var canvas = document.body.appendChild(document.createElement('canvas'))
 css(canvas, {zIndex: -1000})
 var gl = context(canvas, render)
 
+if (!mobile() & safari) {
+  var message = document.body.appendChild(document.createElement('div'))
+  css(message, {
+    position: 'absolute', left: '4%', top: '3%',
+    color: 'white', fontFamily: 'GlacialIndifferenceRegular'
+  })
+  message.innerHTML = 'for music view in Chrome or Firefox'
+}
+
 if (!mobile() & !safari) {
   var audio = new Audio()
   audio.crossOrigin = 'Anonymous'
@@ -55,7 +64,7 @@ link.addEventListener('click', function () {
   window.location.href = 'http://github.com/freeman-lab/extrude'
 })
 var type = {
-  fontFamily: 'Glacial Indifference', 
+  fontFamily: 'GlacialIndifferenceRegular', 
   borderBottom: 'solid 3px rgb(20,20,20)', 
   borderLeft: 'solid 3px rgba(0, 0, 0, 0)',
   paddingBottom: 2,
@@ -158,6 +167,7 @@ var view = mat4.create()
 var background = vignette(gl)
 
 var rotate = 0.005
+var freq
 
 function render () {
   var width = gl.drawingBufferWidth
@@ -173,7 +183,8 @@ function render () {
   mat4.perspective(projection, fov, aspect, near, far)
 
   if (!mobile() & !safari) {
-    rotate = analyser.frequencies().reduce(function (x, y) {return x + y}) / 1000000
+    freq = analyser.frequencies().reduce(function (x, y) {return x + y})
+    rotate = freq / 1000000
   }
 
   camera.rotate([0, 0, 0], [axis * rotate, -rotate, 0])
