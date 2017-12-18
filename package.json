@@ -1,6 +1,6 @@
 {
   "name": "extrude",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "turn a 2d shape into a 3d mesh with extrusion",
   "main": "index.js",
   "scripts": {
@@ -9,11 +9,6 @@
     "start": "budo example.js:bundle.js --live --open",
     "demo": "budo demo.js:bundle.js --live --open",
     "build": "browserify demo.js -o bundle.js"
-  },
-  "browserify": {
-    "transform": [
-      "glslify"
-    ]
   },
   "repository": {
     "type": "git",
